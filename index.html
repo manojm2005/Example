@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BusGo - Bus Ticket Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="logo">
+            🚌 Bus<span>Go</span>
+        </div>
+
+        <nav id="navMenu">
+            <a href="#" onclick="showHome()">Home</a>
+            <a href="#" onclick="showBookings()">My Bookings</a>
+            <a href="#help">Help</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+
+    <!-- ================= MAIN APP ================= -->
+
+    <main id="app">
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="homeSection">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <p class="small-title">TRAVEL MADE SIMPLE</p>
+
+                    <h1>
+                        Book your bus journey
+                        <span>easily.</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Find comfortable buses, choose your seat and book your
+                        journey in just a few clicks.
+                    </p>
+
+                </div>
+
+
+                <!-- SEARCH BOX -->
+
+                <div class="search-box">
+
+                    <div class="input-group">
+
+                        <label>From</label>
+
+                        <select id="fromCity">
+                            <option value="">Select city</option>
+                            <option>Chennai</option>
+                            <option>Bangalore</option>
+                            <option>Coimbatore</option>
+                            <option>Madurai</option>
+                            <option>Hyderabad</option>
+                            <option>Pondicherry</option>
+                        </select>
+
+                    </div>
+
+
+                    <button class="swap-btn" onclick="swapCities()">
+                        ⇄
+                    </button>
+
+
+                    <div class="input-group">
+
+                        <label>To</label>
+
+                        <select id="toCity">
+                            <option value="">Select city</option>
+                            <option>Chennai</option>
+                            <option>Bangalore</option>
+                            <option>Coimbatore</option>
+                            <option>Madurai</option>
+                            <option>Hyderabad</option>
+                            <option>Pondicherry</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Travel Date</label>
+
+                        <input
+                            type="date"
+                            id="travelDate"
+                        >
+
+                    </div>
+
+
+                    <div class="input-group small-input">
+
+                        <label>Passengers</label>
+
+                        <select id="passengers">
+                            <option value="1">1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5">5 Passengers</option>
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        class="search-btn"
+                        onclick="searchBuses()"
+                    >
+                        Search Buses
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- POPULAR ROUTES -->
+
+            <section class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="small-title">EXPLORE</p>
+                        <h2>Popular Routes</h2>
+                    </div>
+                </div>
+
+
+                <div class="route-grid">
+
+                    <div class="route-card">
+                        <div class="route-icon">🚌</div>
+                        <h3>Chennai → Bangalore</h3>
+                        <p>From ₹599</p>
+                        <button onclick="quickSearch('Chennai','Bangalore')">
+                            Search Buses
+                        </button>
+                    </div>
+
+
+                    <div class="route-card">
+                        <div class="route-icon">🚌</div>
+                        <h3>Chennai → Coimbatore</h3>
+                        <p>From ₹499</p>
+                        <button onclick="quickSearch('Chennai','Coimbatore')">
+                            Search Buses
+                        </button>
+                    </div>
+
+
+                    <div class="route-card">
+                        <div class="route-icon">🚌</div>
+                        <h3>Chennai → Madurai</h3>
+                        <p>From ₹449</p>
+                        <button onclick="quickSearch('Chennai','Madurai')">
+                            Search Buses
+                        </button>
+                    </div>
+
+
+                    <div class="route-card">
+                        <div class="route-icon">🚌</div>
+                        <h3>Chennai → Pondicherry</h3>
+                        <p>From ₹299</p>
+                        <button onclick="quickSearch('Chennai','Pondicherry')">
+                            Search Buses
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WHY BUSGO -->
+
+            <section class="why-section">
+
+                <div class="section-heading center">
+                    <p class="small-title">WHY BUSGO?</p>
+                    <h2>Travel without the hassle</h2>
+                </div>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div>⚡</div>
+                        <h3>Quick Booking</h3>
+                        <p>
+                            Search and book your bus in just a few simple steps.
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div>💺</div>
+                        <h3>Choose Your Seat</h3>
+                        <p>
+                            Select your preferred seat before completing your booking.
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div>🔒</div>
+                        <h3>Secure</h3>
+                        <p>
+                            Your booking information is stored safely.
+                        </p>
+                    </div>
+
+
+                    <div class="feature">
+                        <div>📱</div>
+                        <h3>Easy Management</h3>
+                        <p>
+                            View and manage all your bookings in one place.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ================= BUS RESULTS ================= -->
+
+        <section id="resultsSection" class="page-section hidden">
+
+            <div class="page-header">
+
+                <button class="back-btn" onclick="showHome()">
+                    ← Back
+                </button>
+
+                <div>
+                    <p class="small-title">AVAILABLE BUSES</p>
+                    <h2 id="routeTitle">Chennai → Bangalore</h2>
+                    <p id="searchInfo"></p>
+                </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filter-bar">
+
+                <select id="typeFilter" onchange="applyFilters()">
+                    <option value="all">All Bus Types</option>
+                    <option value="AC">AC</option>
+                    <option value="Non-AC">Non-AC</option>
+                    <option value="Sleeper">Sleeper</option>
+                    <option value="Semi-Sleeper">Semi-Sleeper</option>
+                </select>
+
+
+                <select id="sortFilter" onchange="applyFilters()">
+                    <option value="recommended">Recommended</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+
+            </div>
+
+
+            <div id="busList" class="bus-list"></div>
+
+        </section>
+
+
+        <!-- ================= SEAT SECTION ================= -->
+
+        <section id="seatSection" class="page-section hidden">
+
+            <button class="back-btn" onclick="showResults()">
+                ← Back to buses
+            </button>
+
+            <div id="selectedBusInfo"></div>
+
+
+            <div class="booking-layout">
+
+                <!-- SEAT MAP -->
+
+                <div class="seat-container">
+
+                    <h2>Select Your Seats</h2>
+
+                    <div class="seat-legend">
+                        <span>
+                            <i class="available"></i> Available
+                        </span>
+
+                        <span>
+                            <i class="selected"></i> Selected
+                        </span>
+
+                        <span>
+                            <i class="booked"></i> Booked
+                        </span>
+                    </div>
+
+
+                    <div class="bus">
+
+                        <div class="driver">
+                            DRIVER
+                        </div>
+
+                        <div id="seatMap"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUMMARY -->
+
+                <div class="summary-card">
+
+                    <h2>Booking Summary</h2>
+
+                    <div id="summaryBus"></div>
+
+                    <hr>
+
+                    <div class="summary-row">
+                        <span>Selected Seats</span>
+                        <strong id="selectedSeatsText">None</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Ticket Fare</span>
+                        <strong id="ticketFare">₹0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>GST</span>
+                        <strong id="gst">₹0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Convenience Fee</span>
+                        <strong>₹30</strong>
+                    </div>
+
+                    <hr>
+
+                    <div class="total-row">
+                        <span>Total</span>
+                        <strong id="totalFare">₹0</strong>
+                    </div>
+
+                    <button
+                        class="primary-btn full"
+                        onclick="continueToPassenger()"
+                    >
+                        Continue
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PASSENGER SECTION ================= -->
+
+        <section id="passengerSection" class="page-section hidden">
+
+            <button class="back-btn" onclick="showSeats()">
+                ← Back
+            </button>
+
+            <div class="page-header">
+                <div>
+                    <p class="small-title">PASSENGER INFORMATION</p>
+                    <h2>Passenger Details</h2>
+                </div>
+            </div>
+
+
+            <div class="form-container">
+
+                <div id="passengerForms"></div>
+
+
+                <div class="contact-form">
+
+                    <h3>Contact Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="example@email.com"
+                            >
+                        </div>
+
+
+                        <div class="input-group">
+                            <label>Phone</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10-digit mobile number"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <label class="checkbox">
+                        <input type="checkbox" id="terms">
+                        I agree to the Terms & Conditions
+                    </label>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="continueToPayment()"
+                    >
+                        Continue to Payment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PAYMENT ================= -->
+
+        <section id="paymentSection" class="page-section hidden">
+
+            <button class="back-btn" onclick="showPassenger()">
+                ← Back
+            </button>
+
+            <div class="payment-layout">
+
+                <div class="payment-card">
+
+                    <p class="small-title">SECURE CHECKOUT</p>
+
+                    <h2>Payment</h2>
+
+                    <div class="payment-methods">
+
+                        <button
+                            class="payment-tab active"
+                            onclick="selectPayment('upi',this)"
+                        >
+                            UPI
+                        </button>
+
+                        <button
+                            class="payment-tab"
+                            onclick="selectPayment('card',this)"
+                        >
+                            Card
+                        </button>
+
+                        <button
+                            class="payment-tab"
+                            onclick="selectPayment('bank',this)"
+                        >
+                            Net Banking
+                        </button>
+
+                    </div>
+
+
+                    <div id="paymentForm">
+
+                        <div class="input-group">
+
+                            <label>UPI ID</label>
+
+                            <input
+                                type="text"
+                                id="upi"
+                                placeholder="example@upi"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn full"
+                        onclick="processPayment()"
+                    >
+                        Pay Now
+                    </button>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h2>Order Summary</h2>
+
+                    <div id="paymentSummary"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONFIRMATION ================= -->
+
+        <section id="confirmationSection" class="page-section hidden">
+
+            <div class="success-card">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h1>Booking Confirmed!</h1>
+
+                <p>Your bus ticket has been booked successfully.</p>
+
+
+                <div id="ticket"></div>
+
+
+                <div class="ticket-buttons">
+
+                    <button
+                        class="primary-btn"
+                        onclick="window.print()"
+                    >
+                        🖨 Print Ticket
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="showHome()"
+                    >
+                        Back to Home
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOOKINGS ================= -->
+
+        <section id="bookingsSection" class="page-section hidden">
+
+            <div class="page-header">
+
+                <button class="back-btn" onclick="showHome()">
+                    ← Back
+                </button>
+
+                <div>
+                    <p class="small-title">YOUR TRIPS</p>
+                    <h2>My Bookings</h2>
+                </div>
+
+            </div>
+
+
+            <div id="bookingsList"></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🚌 BusGo
+        </div>
+
+        <p>
+            Your journey starts here.
+        </p>
+
+        <p class="copyright">
+            © 2026 BusGo. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
